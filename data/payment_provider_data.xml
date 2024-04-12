@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="payment_method_razorpay" model="payment.provider">
+        <field name="name">Razorpays</field>
+        <field name="code">razorpays</field>
+        <field name="image_128"
+               type="base64"
+               file="payment_razorpays/static/description/icon.png"/>
+        <field name="allow_tokenization">True</field>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+        <field name="module_id" ref="base.module_payment_razorpays"/>
+        <field name="payment_method_ids"
+               eval="[Command.set([
+                         ref('payment_razorpays.payment_method_razorpays'),
+                     ])]"/>
+    </record>
+</odoo>

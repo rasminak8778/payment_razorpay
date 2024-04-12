@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payment_provider_form_razorpays" model="ir.ui.view">
+        <field name="name">Razorpays Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position='inside'>
+                <group name="razorpay_credentials_details"
+                       invisible="code != 'razorpays'">
+                    <field name="razorpay_key_id"
+                           string="Key Id"
+                           required="code == 'razorpays' and state != 'disabled'"/>
+                    <field name="razorpay_key_secret"
+                           string="Key Secret"
+                           required="code == 'razorpays' and state != 'disabled'"
+                           password="True"/>
+<!--                    <field name="razorpay_webhook_secret"-->
+<!--                           string="Webhook Secret"-->
+<!--                           required="code == 'razorpays' and state != 'disabled'"-->
+<!--                           password="True"/>-->
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
